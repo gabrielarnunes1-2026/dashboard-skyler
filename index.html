@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Skyler · Fornecedores, Emissões e Faturamento 2025–2026</title>
+<style>
+  :root{
+    --bg:#0f172a; --card:#1e293b; --card2:#172033; --txt:#e2e8f0; --muted:#94a3b8;
+    --line:#334155; --voo:#3b82f6; --hotel:#22c55e; --outro:#f59e0b; --carro:#a855f7; --milhas:#ec4899;
+    --accent:#38bdf8;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--txt);line-height:1.5;padding:24px}
+  .wrap{max-width:1180px;margin:0 auto}
+  h1{font-size:24px;font-weight:700}
+  .sub{color:var(--muted);font-size:14px;margin-bottom:24px}
+  h2{font-size:18px;font-weight:650;margin:34px 0 14px;display:flex;align-items:center;gap:8px}
+  h2 .bar{width:4px;height:18px;background:var(--accent);border-radius:2px}
+  .grid{display:grid;gap:16px}
+  .kpis{grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
+  .kpi .label{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.04em}
+  .kpi .val{font-size:26px;font-weight:700;margin-top:6px}
+  .kpi .note{font-size:12px;color:var(--muted);margin-top:4px}
+  .two{grid-template-columns:1fr 1fr}
+  @media(max-width:840px){.two{grid-template-columns:1fr}}
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  th,td{padding:9px 10px;text-align:right;border-bottom:1px solid var(--line);white-space:nowrap}
+  th:first-child,td:first-child{text-align:left}
+  th{color:var(--muted);font-weight:600;cursor:pointer;user-select:none;font-size:12px;text-transform:uppercase;letter-spacing:.03em}
+  th:first-child{cursor:default}
+  tbody tr:hover{background:rgba(56,189,248,.06)}
+  .pill{display:inline-block;padding:2px 9px;border-radius:999px;font-size:11px;font-weight:600}
+  .p-voo{background:rgba(59,130,246,.18);color:#93c5fd}
+  .p-hotel{background:rgba(34,197,94,.18);color:#86efac}
+  .p-outro{background:rgba(245,158,11,.18);color:#fcd34d}
+  .p-carro{background:rgba(168,85,247,.18);color:#d8b4fe}
+  .filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+  .filters button{background:var(--card2);border:1px solid var(--line);color:var(--txt);padding:6px 14px;border-radius:999px;font-size:13px;cursor:pointer;transition:.15s}
+  .filters button.active{background:var(--accent);color:#06283d;border-color:var(--accent);font-weight:600}
+  .scroll{overflow-x:auto}
+  .ins{background:linear-gradient(135deg,var(--card),var(--card2));border-left:3px solid var(--accent)}
+  .ins ul{list-style:none;display:grid;gap:12px}
+  .ins li{padding-left:22px;position:relative;font-size:14px}
+  .ins li::before{content:"▸";position:absolute;left:0;color:var(--accent)}
+  .ins b{color:#fff}
+  footer{margin-top:36px;color:var(--muted);font-size:12px;border-top:1px solid var(--line);padding-top:16px}
+  .legend{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--muted);margin-top:12px}
+  .legend span{display:flex;align-items:center;gap:6px}
+  .dot{width:11px;height:11px;border-radius:3px;display:inline-block}
+  /* barras horizontais fornecedores */
+  .hbars{display:grid;gap:8px}
+  .hbar{display:grid;grid-template-columns:170px 1fr 110px;align-items:center;gap:10px;font-size:12px}
+  .hbar .nm{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--txt)}
+  .hbar .track{background:#0f1830;border-radius:6px;height:18px;overflow:hidden}
+  .hbar .fill{height:100%;border-radius:6px;transition:width .4s}
+  .hbar .vl{text-align:right;color:var(--muted)}
+  @media(max-width:560px){.hbar{grid-template-columns:120px 1fr 80px}}
+  .bartip{fill:var(--txt);font-size:10px}
+  .axis{stroke:#23314a}
+  .axlbl{fill:var(--muted);font-size:10px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Fornecedores · Emissões · Faturamento</h1>
+  <div class="sub">Skyler — 2025 (completo) e 2026 (até junho). Faturamento = contas a receber (recebíveis) do serviço de cada emissão.</div>
+
+  <div class="grid kpis">
+    <div class="card kpi"><div class="label">Faturamento 2025</div><div class="val">R$ 23,01 mi</div><div class="note">6.100 emissões · 107 fornecedores</div></div>
+    <div class="card kpi"><div class="label">Faturamento 2026*</div><div class="val">R$ 16,67 mi</div><div class="note">3.354 emissões · 76 fornecedores · *até jun</div></div>
+    <div class="card kpi"><div class="label">Fornecedores no período</div><div class="val">142</div><div class="note">distintos (2025 + 2026)</div></div>
+    <div class="card kpi"><div class="label">Ticket médio</div><div class="val">R$ 4,2 mil</div><div class="note">~R$ 3,8k em 25 · R$ 5,0k em 26</div></div>
+    <div class="card kpi"><div class="label">Concentração</div><div class="val">Top 3 ≈ 80%</div><div class="note">Flytour ≈ 44% (25) / 50% (26)</div></div>
+  </div>
+
+  <h2><span class="bar"></span>Faturamento por mês</h2>
+  <div class="card"><div id="chMes"></div>
+    <div class="legend"><span><span class="dot" style="background:var(--voo)"></span>2025</span><span><span class="dot" style="background:var(--accent)"></span>2026</span></div>
+  </div>
+
+  <h2><span class="bar"></span>Por tipo de serviço</h2>
+  <div class="grid two">
+    <div class="card"><div id="don25"></div><div style="text-align:center;color:var(--muted);font-size:12px;margin-top:6px">Faturamento 2025</div></div>
+    <div class="card"><div id="don26"></div><div style="text-align:center;color:var(--muted);font-size:12px;margin-top:6px">Faturamento 2026 (até jun)</div></div>
+  </div>
+  <div class="card" style="margin-top:16px">
+    <div class="scroll"><table id="tblCat">
+      <thead><tr><th>Tipo de serviço</th><th>Emiss. 2025</th><th>Fat. 2025</th><th>Emiss. 2026</th><th>Fat. 2026</th><th>Ticket médio</th></tr></thead>
+      <tbody></tbody>
+    </table></div>
+    <div class="legend">
+      <span><span class="dot" style="background:var(--hotel)"></span>Hotel: ticket ~R$ 6,4k</span>
+      <span><span class="dot" style="background:var(--voo)"></span>Voo: ~R$ 4,2k (volume)</span>
+      <span><span class="dot" style="background:var(--milhas)"></span>Milhas: ticket altíssimo, volume mínimo</span>
+    </div>
+  </div>
+
+  <h2><span class="bar"></span>Ranking de fornecedores</h2>
+  <div class="filters" id="filtros">
+    <button data-cat="Todos" class="active">Todos</button>
+    <button data-cat="Voo">Voo</button>
+    <button data-cat="Hotel">Hotel</button>
+    <button data-cat="Carro">Carro</button>
+    <button data-cat="Outro">Outro</button>
+  </div>
+  <div class="card"><div class="hbars" id="chTop"></div></div>
+  <div class="card" style="margin-top:16px">
+    <div class="scroll"><table id="tblForn">
+      <thead><tr>
+        <th>Fornecedor</th><th>Tipo</th><th data-k="emiss">Emissões ▾</th>
+        <th data-k="fat">Faturamento ▾</th><th data-k="ticket">Ticket médio ▾</th>
+      </tr></thead>
+      <tbody></tbody>
+    </table></div>
+    <div class="sub" style="margin:10px 0 0">Top 30 fornecedores (≈98% do faturamento). Lista completa dos 142 no relatório .md. Clique nos títulos para ordenar.</div>
+  </div>
+
+  <h2><span class="bar"></span>Leituras relevantes</h2>
+  <div class="card ins"><ul>
+    <li><b>Dependência crítica do Flytour:</b> R$ 18,6 mi nos dois anos (~44% em 2025 e ~50% em 2026). Uma ruptura com esse fornecedor afeta metade do faturamento.</li>
+    <li><b>2026 acelerando:</b> R$ 16,67 mi em 6 meses ≈ R$ 33 mi anualizados — cerca de <b>+45%</b> sobre os R$ 23,0 mi de 2025.</li>
+    <li><b>Hotel rende mais por venda:</b> ticket médio ~R$ 6,4 mil contra ~R$ 4,2 mil em voo. Voo é volume (Flytour, Rextur, Sakura); hotel é valor (EMBARK, Expedia, SETE MARES).</li>
+    <li><b>EMBARK em alta:</b> de R$ 3,35 mi (2025 inteiro) para R$ 3,37 mi só no 1º semestre de 2026 — puxando a categoria Hotel.</li>
+    <li><b>Cadastro precisa de limpeza:</b> nomes duplicados (Bods Concierge, Hotel Amigo Rocco Forte, LOCALIZA, Bliss Travel/Bliss Travel 2) e entradas genéricas (“Outros”, “Usar este para assento”) inflam a contagem e dispersam faturamento.</li>
+    <li><b>Cauda longa de baixo valor:</b> ~116 dos 142 fornecedores têm 1–2 emissões; muitos com R$ 0 de faturamento (emissão sem conta a receber vinculada) — revisar o processo de cobrança.</li>
+  </ul></div>
+
+  <footer>
+    Fonte: banco Skyler — <code>core_emissao</code>, <code>core_fornecedor</code>, <code>core_servico</code>, <code>sk_conta_receber</code>. Faturamento em recebíveis (exclui cancelados), atribuído ao fornecedor da emissão. 2026 parcial até 26/06/2026. Valores arredondados.
+  </footer>
+</div>
+
+<script>
+const BRL = v => 'R$ ' + Math.round(v).toLocaleString('pt-BR');
+const BRLk = v => v>=1e6 ? (v/1e6).toFixed(1)+' mi' : Math.round(v/1000)+'k';
+const SVGNS='http://www.w3.org/2000/svg';
+const C = {Voo:'#3b82f6',Hotel:'#22c55e',Outro:'#f59e0b',Carro:'#a855f7','Voo (pagante)':'#3b82f6','Voo (milhas)':'#ec4899'};
+
+/* ---------- Gráfico de barras mensal (SVG) ---------- */
+const meses25=[1391745,1531619,1264418,1536150,1594880,1860445,1880457,2307352,2338602,3097224,2577861,1630441];
+const meses26=[2208188,1284072,2458894,4113960,3330955,3277181];
+const mlbl=['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'];
+(function(){
+  const data=[...meses25.map((v,i)=>({l:mlbl[i]+'/25',v,c:'#3b82f6'})),
+              ...meses26.map((v,i)=>({l:mlbl[i]+'/26',v,c:'#38bdf8'}))];
+  const W=1080,H=300,pl=46,pr=10,pt=18,pb=42, iw=W-pl-pr, ih=H-pt-pb;
+  const max=Math.max(...data.map(d=>d.v))*1.1, bw=iw/data.length*0.66, gap=iw/data.length;
+  let s=`<svg viewBox="0 0 ${W} ${H}" width="100%" preserveAspectRatio="xMidYMid meet">`;
+  for(let g=0;g<=4;g++){const y=pt+ih-ih*g/4,val=max*g/4;
+    s+=`<line class="axis" x1="${pl}" y1="${y.toFixed(1)}" x2="${W-pr}" y2="${y.toFixed(1)}"/>`;
+    s+=`<text class="axlbl" x="${pl-6}" y="${(y+3).toFixed(1)}" text-anchor="end">${BRLk(val)}</text>`;}
+  data.forEach((d,i)=>{const h=ih*d.v/max,x=pl+gap*i+(gap-bw)/2,y=pt+ih-h;
+    s+=`<rect x="${x.toFixed(1)}" y="${y.toFixed(1)}" width="${bw.toFixed(1)}" height="${h.toFixed(1)}" rx="3" fill="${d.c}"><title>${d.l}: ${BRL(d.v)}</title></rect>`;
+    s+=`<text class="axlbl" x="${(x+bw/2).toFixed(1)}" y="${H-pb+14}" text-anchor="middle" transform="rotate(0)">${d.l.split('/')[0]}</text>`;
+    if(i===0||i===12)s+=`<text class="axlbl" x="${(x+bw/2).toFixed(1)}" y="${H-pb+28}" text-anchor="middle" style="fill:#cbd5e1;font-weight:600">${'20'+d.l.split('/')[1]}</text>`;});
+  s+=`</svg>`;
+  document.getElementById('chMes').innerHTML=s;
+})();
+
+/* ---------- Donuts por categoria (SVG) ---------- */
+const cat=[
+  {c:'Voo (pagante)',e25:4057,f25:15282584,e26:2310,f26:11179409},
+  {c:'Hotel',        e25:1067,f25:6080051, e26:604, f26:4623157},
+  {c:'Outro',        e25:906, f25:1503173, e26:402, f26:778333},
+  {c:'Carro',        e25:65,  f25:84238,   e26:35,  f26:21412},
+  {c:'Voo (milhas)', e25:5,   f25:61149,   e26:4,   f26:72822},
+];
+function donut(id,key){
+  const tot=cat.reduce((a,x)=>a+x[key],0), R=70,SW=26,cx=110,cy=95,circ=2*Math.PI*R;
+  let off=0,s=`<svg viewBox="0 0 320 190" width="100%">`;
+  cat.forEach(x=>{const frac=x[key]/tot,len=circ*frac;
+    s+=`<circle cx="${cx}" cy="${cy}" r="${R}" fill="none" stroke="${C[x.c]||'#64748b'}" stroke-width="${SW}"
+        stroke-dasharray="${len.toFixed(2)} ${(circ-len).toFixed(2)}" stroke-dashoffset="${(-off).toFixed(2)}"
+        transform="rotate(-90 ${cx} ${cy})"><title>${x.c}: ${BRL(x[key])} (${(frac*100).toFixed(1)}%)</title></circle>`;
+    off+=len;});
+  s+=`<text x="${cx}" y="${cy-4}" text-anchor="middle" fill="#e2e8f0" font-size="18" font-weight="700">${BRLk(tot)}</text>`;
+  s+=`<text x="${cx}" y="${cy+14}" text-anchor="middle" fill="#94a3b8" font-size="11">total</text>`;
+  let ly=34;cat.forEach(x=>{s+=`<rect x="210" y="${ly-9}" width="11" height="11" rx="2" fill="${C[x.c]||'#64748b'}"/>`;
+    s+=`<text x="228" y="${ly}" fill="#cbd5e1" font-size="11">${x.c}</text>`;ly+=24;});
+  s+=`</svg>`;document.getElementById(id).innerHTML=s;
+}
+donut('don25','f25');donut('don26','f26');
+const tbC=document.querySelector('#tblCat tbody');
+cat.forEach(x=>{const tm=(x.f25+x.f26)/(x.e25+x.e26);
+  tbC.insertAdjacentHTML('beforeend',
+   `<tr><td>${x.c}</td><td>${x.e25.toLocaleString('pt-BR')}</td><td>${BRL(x.f25)}</td>
+    <td>${x.e26.toLocaleString('pt-BR')}</td><td>${BRL(x.f26)}</td><td>${BRL(tm)}</td></tr>`);});
+
+/* ---------- Fornecedores (top 30) ---------- */
+const F=[
+ ['Flytour','Voo',4249,18570533],['EMBARK Beyond Brasil','Hotel',467,6722171],
+ ['Sakura Consolidadora','Voo',683,3864861],['Expedia','Hotel',1061,2356794],
+ ['Rextur','Voo',923,1503952],['Confiança CWB','Voo',153,1120359],
+ ['Skyler Turismo e Viagens','Outro',554,1013444],['SETE MARES','Hotel',21,731044],
+ ['Hotel Amigo Rocco Forte','Hotel',9,647416],['Chaim','Voo',30,328848],
+ ['Outros','Voo',72,248232],['Usar este para "assento"','Outro',281,244906],
+ ['Latam Airlines','Voo',38,209282],['TBO Holidays','Hotel',66,173203],
+ ['Affinity Seguro Viagem','Outro',199,136367],['Overseas Travel of Brazil','Outro',6,128078],
+ ['Bliss Travel','Hotel',3,114745],['Spirit Airlines','Voo',1,111222],
+ ['Bods Concierge','Voo',19,106654],['Skyteam','Voo',81,106645],
+ ['Younique','Outro',1,72831],['Explora Journeys','Outro',1,67450],
+ ['Terminal BTG','Outro',33,65476],['Rolzo','Outro',31,61892],
+ ['ALTA Business SARL','Outro',2,52780],['TRIO Transportes','Outro',13,50864],
+ ['Onic Car Rentals','Carro',2,47938],['Easy Jet','Voo',16,47619],
+ ['TAP','Voo',12,44421],['Air France','Voo',9,42570]
+].map(r=>({nome:r[0],cat:r[1],emiss:r[2],fat:r[3],ticket:r[3]/r[2]}));
+
+let curCat='Todos',sortK='fat',sortDir=-1;
+const pillCls={Voo:'p-voo',Hotel:'p-hotel',Outro:'p-outro',Carro:'p-carro'};
+
+function render(){
+  let rows=F.filter(f=>curCat==='Todos'||f.cat===curCat);
+  rows.sort((a,b)=>(a[sortK]-b[sortK])*sortDir);
+  const tb=document.querySelector('#tblForn tbody');tb.innerHTML='';
+  rows.forEach(f=>tb.insertAdjacentHTML('beforeend',
+   `<tr><td>${f.nome}</td><td><span class="pill ${pillCls[f.cat]}">${f.cat}</span></td>
+    <td>${f.emiss.toLocaleString('pt-BR')}</td><td>${BRL(f.fat)}</td><td>${BRL(f.ticket)}</td></tr>`));
+  const top=[...rows].sort((a,b)=>b.fat-a.fat).slice(0,12);
+  const mx=Math.max(...top.map(t=>t.fat),1);
+  const ct=document.getElementById('chTop');ct.innerHTML='';
+  top.forEach(t=>{ct.insertAdjacentHTML('beforeend',
+   `<div class="hbar"><div class="nm" title="${t.nome}">${t.nome}</div>
+     <div class="track"><div class="fill" style="width:${(t.fat/mx*100).toFixed(1)}%;background:${C[t.cat]}"></div></div>
+     <div class="vl">${BRL(t.fat)}</div></div>`);});
+}
+document.querySelectorAll('#filtros button').forEach(b=>b.onclick=()=>{
+  document.querySelectorAll('#filtros button').forEach(x=>x.classList.remove('active'));
+  b.classList.add('active');curCat=b.dataset.cat;render();});
+document.querySelectorAll('#tblForn th[data-k]').forEach(th=>th.onclick=()=>{
+  const k=th.dataset.k;if(sortK===k)sortDir*=-1;else{sortK=k;sortDir=-1;}render();});
+render();
+</script>
+</body>
+</html>
